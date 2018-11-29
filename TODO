@@ -1,0 +1,8 @@
+This TODO file is to highlight any coding style related changes that are pending.
+*	s1.c -
+		a.  move the logic of s1c3 to functions.c
+
+*	Unit Tests
+		Unit test from Unity Framework for all functions
+
+*	License information in all source files
