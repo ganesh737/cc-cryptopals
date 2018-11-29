@@ -302,7 +302,7 @@ void decryptedSingleByteXOR(char* dest, const char* src)
 		memset(dest, 0, len + 1);
 	}
 
-	printf("iWithBestMatch=%d\n", iWithBestMatch);
+	printDebug("iWithBestMatch=%d\n", iWithBestMatch);
 
 	xorStringWithChar(dest, hexString, iWithBestMatch);
 	// printAs(dest, "char");
@@ -312,7 +312,7 @@ void decryptedSingleByteXOR(char* dest, const char* src)
 
 int hexValueScore(const char* hexString, const char hexValue)
 {
-	printf("%s %c\n", hexString, hexValue);
+	printDebug("%s %c\n", hexString, hexValue);
 	return 0;
 }
 
