@@ -41,3 +41,8 @@ Kindly use the Makefile for any changes to build process or adding source files.
         time ./test
         ```
 
+## References
+* Makefiles
+    * [GCC and Make: Compiling, Linking and Building C/C++ Applications](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
+    * [Using make and writing Makefiles](https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html)
+

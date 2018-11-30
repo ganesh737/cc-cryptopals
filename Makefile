@@ -1,20 +1,41 @@
-# Using https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html
-
+# define the C compiler to use
 CC = gcc
+
+# define any compile-time flags
 CFLAGS = -Wall -Wextra -Werror
 
+# output file
 LINK_TARGET = build/cryptopals
 
-OBJS =  \
- build/functions.o \
- build/s1.o \
- build/main.o
+# source directory
+SRC_DIR = src/
 
-REBUILDABLES = $(OBJS) $(LINK_TARGET)
+# includes directory
+INC_DIR=inc/
 
-INCLUDES = -Iinc/ \
+# build directory
+BUILD_DIR = build/
+
+# define the C source files
+SRCS = \
+	$(SRC_DIR)functions.c \
+	$(SRC_DIR)main.c \
+	$(SRC_DIR)s1.c
+
+# define any directories containing header files other than /usr/include
+INCLUDES = \
+	-Iinc/ \
 	-Isrc/
 
+# define the C object files
+# This uses Suffix Replacement within a macro:
+#   $(name:string1=string2)
+#         For each word in 'name' replace 'string1' with 'string2'
+# Below we are replacing the suffix .c of all words in the macro SRCS
+# with the .o suffix
+OBJS = $(SRCS:$(SRC_DIR)%.c=$(BUILD_DIR)%.o)
+
+REBUILDABLES = $(OBJS) $(LINK_TARGET)
 
 ## Mail level rules
 all: run runv runu
@@ -44,7 +65,7 @@ $(LINK_TARGET) : $(OBJS)
 # $@ for the pattern-matched target
 # $< for the pattern-matched dependency
 # %.c refers to *.c
-build/%.o : src/%.c
+$(BUILD_DIR)%.o : $(SRC_DIR)%.c
 	${CC} ${CFLAGS} -g -o $@ -c $< ${INCLUDES}
 
 # build/main.o :
@@ -84,5 +105,9 @@ clean:
 	rm -f $(REBUILDABLES)
 	rm -rf build
 	echo CLEAN done
+
+# print make variables
+print-% :
+	@echo $* = $($*)
 
 .PHONY: all createBuildFolder run utest clean s1c1 s1c1v s1c2 s1c2v s1c3 s1c3v

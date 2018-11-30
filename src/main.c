@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 	{
 		for(i = 1; i < argc; i++)
 		{
-			printInfo("myHash for %s:%d\n", *(argv + i), myHash(*(argv + i)));
+			printf("myHash for %s:%d\n", *(argv + i), myHash(*(argv + i)));
 			switch(myHash(*(argv + i)))
 			{
 				case 357:
@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 					break;
 
 				default:
-					printInfo("argv:%s\n", *(argv + i));
+					printf("argv:%s\n", *(argv + i));
 					break;
 			}
 		}
