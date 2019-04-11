@@ -10,9 +10,6 @@ LINK_TARGET = build/cryptopals
 # source directory
 SRC_DIR = src/
 
-# includes directory
-INC_DIR=inc/
-
 # build directory
 BUILD_DIR = build/
 
@@ -100,11 +97,10 @@ s1c3:
 s1c3v:
 	valgrind -v ./build/cryptopals -s1c3
 
-
+# clean the build directory
 clean:
 	rm -f $(REBUILDABLES)
 	rm -rf build
-	echo CLEAN done
 
 # print make variables
 print-% :

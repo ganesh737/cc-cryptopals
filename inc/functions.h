@@ -24,7 +24,8 @@
 
 /*
  * Revision History:
- *     Initial: 2017/11/20      Ganesh Halthota
+ *     2017/11/20 : Ganesh Halthota : Initial Version
+ *     2018/11/30 : Ganesh Halthota : Add new functions
  */
 
 #ifndef FUNCTIONS_H
@@ -58,9 +59,16 @@ void usage();
 
 
 // common printing usage
+// print message -- deprecated once the variable argument method is available
 int printError(const char* message);
 int printDebug(const char* message);
 int printInfo(const char* message);
+
+// print with variable argument list
+int printError();
+int printDebug();
+int printInfo();
+
 void printAsHexString(const char* str);
 void printAsCharString(const char* str);
 void printAs(const char* str, const char* format);

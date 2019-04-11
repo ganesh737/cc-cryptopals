@@ -24,7 +24,7 @@
 
 /*
  * Revision History:
- *     Initial: 2017/11/20      Ganesh Halthota
+ *     2017/11/20 : Ganesh Halthota : Initial Version
  */
 
 #include <stdio.h>
